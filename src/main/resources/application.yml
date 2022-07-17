@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: chasqui-delivery
+  profiles:
+    active: dev
