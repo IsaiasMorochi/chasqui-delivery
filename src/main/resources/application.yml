@@ -3,3 +3,8 @@ spring:
     name: chasqui-delivery
   profiles:
     active: dev
+
+elastisearch:
+  host: localhost:9200
+  user: elastic
+  password: 9Jk-zscPU*XIqASRBCbB
