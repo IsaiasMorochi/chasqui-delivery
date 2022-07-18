@@ -1,6 +1,5 @@
 package com.imorochi.chasqui.domain.document;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.imorochi.chasqui.domain.helper.Indices;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,27 +10,21 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.annotations.Setting;
 
-import java.util.Date;
+import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(indexName = Indices.ORDER_INDEX)
+@Document(indexName = Indices.TAG_INDEX)
 @Setting(settingPath = "static/settings.json")
-public class Order {
+public class Tag implements Serializable {
+
+    private static final long serialVersionUID = 8799656478674716638L;
 
     @Id
     @Field(type = FieldType.Keyword)
-    private Integer orderId;
-
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    @Field(type = FieldType.Date)
-    private Date shipDate;
+    private Integer tagId;
 
     @Field(type = FieldType.Text)
-    private String status;
-
-    @Field(type = FieldType.Boolean)
-    private Boolean complete;
-
+    private String tagName;
 }

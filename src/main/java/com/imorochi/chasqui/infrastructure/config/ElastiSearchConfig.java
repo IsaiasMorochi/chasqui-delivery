@@ -2,6 +2,7 @@ package com.imorochi.chasqui.infrastructure.config;
 
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.client.ClientConfiguration;
@@ -15,7 +16,7 @@ import org.springframework.http.HttpHeaders;
 @ComponentScan(basePackages = {"com.imorochi.chasqui"})
 public class ElastiSearchConfig extends AbstractElasticsearchConfiguration {
 
-    @Value("${elasticsearch.url}")
+    @Value("${elasticsearch.host}")
     public String host;
 
     @Value("${elasticsearch.user}")
@@ -24,6 +25,7 @@ public class ElastiSearchConfig extends AbstractElasticsearchConfiguration {
     @Value("${elasticsearch.password}")
     public String password;
 
+    @Bean
     @Override
     public RestHighLevelClient elasticsearchClient() {
 

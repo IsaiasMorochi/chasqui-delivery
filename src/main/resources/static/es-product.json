@@ -1,0 +1,44 @@
+{
+  "mappings": {
+    "properties": {
+      "category": {
+        "type": "nested",
+        "properties": {
+          "categoryId": {
+            "type": "keyword"
+          },
+          "categoryName": {
+            "type": "text"
+          }
+        }
+      },
+      "productId": {
+        "type": "keyword"
+      },
+      "productName": {
+        "type": "text"
+      },
+      "productPhotoUrl": {
+        "type": "text"
+      },
+      "productPrice": {
+        "type": "text"
+      },
+      "productStatus": {
+        "type": "text"
+      },
+      "tags": {
+        "type": "nested",
+        "properties": {
+          "tagId": {
+            "type": "keyword"
+          },
+          "tagName": {
+            "type": "text"
+          }
+        }
+      }
+    }
+  }
+
+}

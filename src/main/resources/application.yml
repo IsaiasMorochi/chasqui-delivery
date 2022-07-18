@@ -4,7 +4,10 @@ spring:
   profiles:
     active: dev
 
-elastisearch:
+elasticsearch:
   host: localhost:9200
   user: elastic
   password: 9Jk-zscPU*XIqASRBCbB
+
+server:
+  port: 8100
