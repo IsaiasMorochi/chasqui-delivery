@@ -1,44 +1,174 @@
 {
   "mappings": {
+    "dynamic_templates": [
+      {
+        "phonetic": {
+          "match": "productName",
+          "match_mapping_type": "string",
+          "mapping": {
+            "analyzer": "standard",
+            "fields": {
+              "metaphone": {
+                "analyzer": "metaphone",
+                "type": "text"
+              },
+              "soundex": {
+                "analyzer": "soundex",
+                "type": "text"
+              },
+              "nysiis": {
+                "analyzer": "nysiis",
+                "type": "text"
+              }
+            },
+            "type": "text"
+          }
+        }
+      }
+    ],
     "properties": {
       "category": {
-        "type": "nested",
         "properties": {
           "categoryId": {
-            "type": "keyword"
+            "type": "long"
           },
           "categoryName": {
-            "type": "text"
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
           }
         }
       },
       "productId": {
-        "type": "keyword"
+        "type": "long"
       },
       "productName": {
-        "type": "text"
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "metaphone": {
+            "type": "text",
+            "analyzer": "metaphone"
+          },
+          "nysiis": {
+            "type": "text",
+            "analyzer": "nysiis"
+          },
+          "soundex": {
+            "type": "text",
+            "analyzer": "soundex"
+          }
+        },
+        "analyzer": "standard"
       },
       "productPhotoUrl": {
-        "type": "text"
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
       },
       "productPrice": {
-        "type": "text"
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
       },
       "productStatus": {
-        "type": "text"
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
       },
       "tags": {
-        "type": "nested",
         "properties": {
           "tagId": {
-            "type": "keyword"
+            "type": "long"
           },
           "tagName": {
-            "type": "text"
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "index": {
+      "analysis": {
+        "filter": {
+          "metaphone_product": {
+            "replace": "false",
+            "type": "phonetic",
+            "encoder": "doublemetaphone"
+          },
+          "nysiis_product": {
+            "replace": "false",
+            "type": "phonetic",
+            "encoder": "nysiis"
+          },
+          "refined_soundex_product": {
+            "replace": "false",
+            "type": "phonetic",
+            "encoder": "refinedsoundex"
+          }
+        },
+        "normalizer": {
+          "lowercase_normalizer": {
+            "filter": [
+              "lowercase"
+            ],
+            "type": "custom",
+            "char_filter": []
+          }
+        },
+        "analyzer": {
+          "soundex": {
+            "filter": [
+              "lowercase",
+              "refined_soundex_product"
+            ],
+            "type": "custom",
+            "tokenizer": "standard"
+          },
+          "metaphone": {
+            "filter": [
+              "lowercase",
+              "metaphone_product"
+            ],
+            "type": "custom",
+            "tokenizer": "standard"
+          },
+          "nysiis": {
+            "filter": [
+              "lowercase",
+              "nysiis_product"
+            ],
+            "type": "custom",
+            "tokenizer": "standard"
           }
         }
       }
     }
   }
-
 }
