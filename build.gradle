@@ -25,6 +25,9 @@ dependencies {
     implementation "com.fasterxml.jackson.core:jackson-core:2.13.1"
     implementation "com.fasterxml.jackson.core:jackson-annotations:2.13.1"
     implementation("org.springdoc:springdoc-openapi-ui:1.6.6")
+    // https://mvnrepository.com/artifact/com.gitlab.johnjvester/random-generator
+    implementation group: 'com.gitlab.johnjvester', name: 'random-generator', version: '1.9'
+
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

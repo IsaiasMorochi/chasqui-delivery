@@ -9,5 +9,9 @@ elasticsearch:
   user: elastic
   password: 9Jk-zscPU*XIqASRBCbB
 
+slash-graph-ql:
+  hostname: https://blue-surf-591004.us-east-1.aws.cloud.dgraph.io #${SLASH_GRAPH_QL_HOSTNAME}
+
+
 server:
   port: 8100
