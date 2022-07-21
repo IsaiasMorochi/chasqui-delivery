@@ -1,0 +1,103 @@
+
+mutation {
+    addCategory (input: [
+        {categoryId: 1, categoryName: "Pizza"},
+        {categoryId: 2, categoryName: "Comida Nacional"},
+        {categoryId: 3, categoryName: "Comida Intenacional"},
+        {categoryId: 4, categoryName: "Abarrote"},
+        {categoryId: 5, categoryName: "Bebida"},
+        {categoryId: 6, categoryName: "Carne"},
+        {categoryId: 7, categoryName: "Embutido"},
+        {categoryId: 8, categoryName: "Fruta"},
+        {categoryId: 9, categoryName: "Verdura"},
+        {categoryId: 10, categoryName: "Lácteo"},
+        {categoryId: 11, categoryName: "Huevo"},
+        {categoryId: 12, categoryName: "Panaderia"},
+        {categoryId: 13, categoryName: "Artículos de higiene personal"},
+        {categoryId: 14, categoryName: "Artículos de limpieza"},
+        {categoryId: 15, categoryName: "Alimento para mascotas"},
+        {categoryId: 16, categoryName: "Electronicos"}])
+    {
+        category {
+        categoryId
+        categoryName
+    }
+    }
+}
+
+mutation {
+    addCustomer(input: [
+        {username: "Isaias"},
+        {username: "John"},
+        {username: "Pedro"},
+        {username: "Russell"},
+        {username: "Mario"}]) {
+        customer {
+            username
+        }
+    }
+}
+
+mutation {
+    addProduct(input: [
+        {productId: 1, productName: "Acer Aspire Laptop", productPhotoUrl: "path/url", productPrice:"100", category: {categoryId: 16, categoryName: "Electronicos"}},
+        {productId: 2, productName: "HP Laptop", productPhotoUrl: "path/url", productPrice:"100", category: {categoryId: 16, categoryName: "Electronicos"}},
+        {productId: 3, productName: "Asus Laptop", productPhotoUrl: "path/url", productPrice:"100", category: {categoryId: 16, categoryName: "Electronicos"}},
+        {productId: 4, productName: "HP pavilon Laptop 2022", productPhotoUrl: "path/url", productPrice:"100", category: {categoryId: 16, categoryName: "Electronicos"}},
+        {productId: 5, productName: "Dell Laptop Windows 11", productPhotoUrl: "path/url", productPrice:"100", category: {categoryId: 16, categoryName: "Electronicos"}},
+        {productId: 6, productName: "Lenovo Windows 10", productPhotoUrl: "path/url", productPrice:"100", category: {categoryId: 16, categoryName: "Electronicos"}},
+        {productId: 7, productName: "ThinkPad Windows 11", productPhotoUrl: "path/url", productPrice:"100", category: {categoryId: 16, categoryName: "Electronicos"}},
+        {productId: 8, productName: "Pollo 3/4", productPhotoUrl: "path/url", productPrice:"15", category: {categoryId: 2, categoryName: "Comida Nacional"}},
+        {productId: 9, productName: "Pizza Americana", productPhotoUrl: "path/url", productPrice:"66", category: {categoryId: 1, categoryName: "Pizza"}},
+        {productId: 10, productName: "Jabon Ace", productPhotoUrl: "path/url", productPrice:"5", category: {categoryId: 13, categoryName: "Artículos de higiene personal"}},
+        {productId: 11, productName: "Pollo a la Braza", productPhotoUrl: "path/url", productPrice:"32", category: {categoryId: 2, categoryName: "Comida Nacional"}},
+        {productId: 12, productName: "Pollo al Spiedo", productPhotoUrl: "path/url", productPrice:"25", category: {categoryId: 2, categoryName: "Comida Nacional"}},
+        {productId: 13, productName: "Champu", productPhotoUrl: "path/url", productPrice:"13", category: {categoryId: 13, categoryName: "Artículos de higiene personal"}},
+        {productId: 14, productName: "Portatil Lenovo", productPhotoUrl: "path/url", productPrice:"240", category: {categoryId: 16, categoryName: "Electronicos"}},
+        {productId: 15, productName: "Pizza Napolitana", productPhotoUrl: "path/url", productPrice:"56", category: {categoryId: 1, categoryName: "Pizza"}},
+        {productId: 16, productName: "Huevo Criollo", productPhotoUrl: "path/url", productPrice:"10", category: {categoryId: 16, categoryName: "Electronicos"}}
+    ]) {
+        product {
+            productId
+            productName
+            productPhotoUrl
+            productPrice
+            category {
+                categoryId
+                categoryName
+            }
+        }
+    }
+}
+
+mutation {
+    addRating(input: [
+        {by: {username: "Isaias"}, about: {productId: 1, productName: "Acer Aspire Laptop", productPhotoUrl: "path/url", productPrice: "100", category: {categoryId: 16, categoryName: "Electronicos"}}, score: 4},
+        {by: {username: "John"}, about: {productId: 2, productName: "HP Laptop", productPhotoUrl: "path/url", productPrice: "100", category: {categoryId: 16, categoryName: "Electronicos"}}, score: 6},
+        {by: {username: "Pedro"}, about: {productId: 3, productName: "Asus Laptop", productPhotoUrl: "path/url", productPrice: "100", category: {categoryId: 16, categoryName: "Electronicos"}}, score: 4},
+        {by: {username: "Russell"}, about: {productId: 4, productName: "HP pavilon Laptop 2022", productPhotoUrl: "path/url", productPrice: "100", category: {categoryId: 16, categoryName: "Electronicos"}}, score: 2},
+        {by: {username: "Mario"}, about: {productId: 5, productName: "Dell Laptop Windows 11", productPhotoUrl: "path/url", productPrice: "100", category: {categoryId: 16, categoryName: "Electronicos"}}, score: 3},
+        {by: {username: "Mario"}, about: {productId: 6, productName: "Lenovo Windows 10", productPhotoUrl: "path/url", productPrice: "100", category: {categoryId: 16, categoryName: "Electronicos"}}, score: 4},
+        {by: {username: "Russell"}, about: {productId: 7, productName: "ThinkPad Windows 11", productPhotoUrl: "path/url", productPrice: "100", category: {categoryId: 16, categoryName: "Electronicos"}}, score: 5},
+        {by: {username: "Isaias"}, about: {productId: 3, productName: "Asus Laptop", productPhotoUrl: "path/url", productPrice: "100", category: {categoryId: 16, categoryName: "Electronicos"}}, score: 3},
+        {by: {username: "Pedro"}, about: {productId: 4, productName: "HP pavilon Laptop 2022", productPhotoUrl: "path/url", productPrice: "100", category: {categoryId: 16, categoryName: "Electronicos"}}, score: 2},
+        {by: {username: "John"}, about: {productId: 5, productName: "Dell Laptop Windows 11", productPhotoUrl: "path/url", productPrice: "100", category: {categoryId: 16, categoryName: "Electronicos"}}, score: 4}
+    ]) {
+        rating {
+            score
+            by {
+                username
+            }
+            about {
+                productName
+                productId
+                productPhotoUrl
+                productPrice
+                category {
+                    categoryId
+                    categoryName
+                }
+            }
+        }
+    }
+}

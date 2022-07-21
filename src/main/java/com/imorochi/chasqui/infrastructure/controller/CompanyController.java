@@ -1,6 +1,6 @@
 package com.imorochi.chasqui.infrastructure.controller;
 
-import com.imorochi.chasqui.application.CompanyService;
+import com.imorochi.chasqui.application.service.CompanyService;
 import com.imorochi.chasqui.domain.document.Company;
 import org.springframework.web.bind.annotation.*;
 

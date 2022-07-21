@@ -1,4 +1,4 @@
-package com.imorochi.chasqui.domain.helper;
+package com.imorochi.chasqui.infrastructure.utils.helper;
 
 public final class Indices {
 

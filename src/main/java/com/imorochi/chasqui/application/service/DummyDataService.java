@@ -1,9 +1,6 @@
-package com.imorochi.chasqui.application;
+package com.imorochi.chasqui.application.service;
 
-import com.imorochi.chasqui.domain.document.Product;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 import static com.imorochi.chasqui.infrastructure.mock.DATA.*;
 

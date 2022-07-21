@@ -1,6 +1,6 @@
 package com.imorochi.chasqui.infrastructure.controller;
 
-import com.imorochi.chasqui.application.ProductService;
+import com.imorochi.chasqui.application.service.ProductService;
 import com.imorochi.chasqui.application.search.SearchRequestDTO;
 import com.imorochi.chasqui.domain.document.Product;
 import org.springframework.web.bind.annotation.*;

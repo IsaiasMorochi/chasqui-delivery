@@ -1,6 +1,6 @@
 package com.imorochi.chasqui.infrastructure.controller;
 
-import com.imorochi.chasqui.application.RecommendationService;
+import com.imorochi.chasqui.application.service.RecommendationService;
 import com.imorochi.chasqui.domain.document.Recommendation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

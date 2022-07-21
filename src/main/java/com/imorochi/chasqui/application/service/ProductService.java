@@ -1,4 +1,4 @@
-package com.imorochi.chasqui.application;
+package com.imorochi.chasqui.application.service;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -7,7 +7,7 @@ import com.imorochi.chasqui.application.search.SearchCustom;
 import com.imorochi.chasqui.application.search.SearchRequestDTO;
 import com.imorochi.chasqui.domain.document.Product;
 import com.imorochi.chasqui.domain.graphQL.SlashGraphQlResultProduct;
-import com.imorochi.chasqui.domain.helper.Indices;
+import com.imorochi.chasqui.infrastructure.utils.helper.Indices;
 import com.imorochi.chasqui.infrastructure.config.SlashGraphQlProperties;
 import com.imorochi.chasqui.infrastructure.utils.RestTemplateUtils;
 import lombok.extern.slf4j.Slf4j;

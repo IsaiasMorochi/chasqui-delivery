@@ -1,4 +1,4 @@
-package com.imorochi.chasqui.application;
+package com.imorochi.chasqui.application.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

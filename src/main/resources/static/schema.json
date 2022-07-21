@@ -1,0 +1,25 @@
+type Category {
+  categoryId: Int!
+  categoryName: String!
+}
+
+type Customer {
+  username: String! @id @search(by: [hash, regexp])
+  ratings: [Rating] @hasInverse(field: by)
+}
+
+type Product {
+  productId: Int!
+  category: Category!
+  productName: String! @id @search(by: [hash, regexp])
+  productPrice: String!
+  productPhotoUrl: String!
+  ratings: [Rating] @hasInverse(field: about)
+}
+
+type Rating {
+  id: ID!
+  about: Product!
+  by: Customer!
+  score: Int @search
+}

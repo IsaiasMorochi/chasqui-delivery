@@ -1,6 +1,6 @@
 package com.imorochi.chasqui.infrastructure.controller;
 
-import com.imorochi.chasqui.application.CategoryService;
+import com.imorochi.chasqui.application.service.CategoryService;
 import com.imorochi.chasqui.domain.document.Category;
 import org.springframework.web.bind.annotation.*;
 

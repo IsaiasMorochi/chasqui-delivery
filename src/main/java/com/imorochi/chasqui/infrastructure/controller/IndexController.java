@@ -1,6 +1,6 @@
 package com.imorochi.chasqui.infrastructure.controller;
 
-import com.imorochi.chasqui.application.DummyDataService;
+import com.imorochi.chasqui.application.service.DummyDataService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

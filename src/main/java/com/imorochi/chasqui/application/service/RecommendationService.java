@@ -1,4 +1,4 @@
-package com.imorochi.chasqui.application;
+package com.imorochi.chasqui.application.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,7 +12,6 @@ import com.imorochi.chasqui.domain.graphQL.GraphQlDataRating;
 import com.imorochi.chasqui.domain.graphQL.SlashGraphQlResultRating;
 import com.imorochi.chasqui.infrastructure.config.SlashGraphQlProperties;
 import com.imorochi.chasqui.infrastructure.utils.RestTemplateUtils;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

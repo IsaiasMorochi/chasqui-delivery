@@ -1,4 +1,4 @@
-package com.imorochi.chasqui.application;
+package com.imorochi.chasqui.application.service;
 
 import com.imorochi.chasqui.domain.document.Category;
 import com.imorochi.chasqui.domain.repository.CategoryRepository;

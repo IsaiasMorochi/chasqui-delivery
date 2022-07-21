@@ -1,6 +1,6 @@
 package com.imorochi.chasqui.domain.document;
 
-import com.imorochi.chasqui.domain.helper.Indices;
+import com.imorochi.chasqui.infrastructure.utils.helper.Indices;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

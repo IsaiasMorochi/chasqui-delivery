@@ -1,6 +1,6 @@
 package com.imorochi.chasqui.infrastructure.controller;
 
-import com.imorochi.chasqui.application.OrderService;
+import com.imorochi.chasqui.application.service.OrderService;
 import com.imorochi.chasqui.domain.document.Order;
 import org.springframework.web.bind.annotation.*;
 
