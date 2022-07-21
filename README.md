@@ -47,7 +47,7 @@ La aplicacion presenta la siguiente estructura:
              └── application.yml                     
 ```
 
-#### Herramientas desarrollo
+#### Tecnologias
 
 * Spring boot 2.6.9
 * Spring Data Elastisearch (Access+Driver)
@@ -119,6 +119,14 @@ type Rating {
 ```
 
 Seguido se debe poblar con data ejecutando las mutaciones en el archivo `mutation.json`
+* [Mutation GraphQL](https://github.com/IsaiasMorochi/chasqui-delivery/tree/master/src/main/resources/static/mutation.json)
+
+## Documentacion Api Rest
+Se realizo la implemntacion de Open API para autodocumentar la API, mismo que se encuentra
+detallado en **[Documentacion OpenApi](doc/endpoints/chasqui-delivery-openapi.json)**.
+
+![OpenApi](https://github.com/IsaiasMorochi/chasqui-delivery/blob/master/doc/img/DocOpenApi.png)
+
 
 ### Entregables
 * [Repositorio](https://github.com/IsaiasMorochi/chasqui-delivery)
@@ -126,9 +134,13 @@ Seguido se debe poblar con data ejecutando las mutaciones en el archivo `mutatio
 * [Schema GraphQL](https://github.com/IsaiasMorochi/chasqui-delivery/tree/master/src/main/resources/static/schema.json)
 * [Mutation GraphQL](https://github.com/IsaiasMorochi/chasqui-delivery/tree/master/src/main/resources/static/mutation.json)
 
+### Referencias
 
-### Additional Links
-
-These additional references should also help you:
-
+* [Arquitectura Hexagonal y DDD](https://codely.tv/blog/screencasts/arquitectura-hexagonal-ddd/)
+* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+* [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/)
+* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
 * [Dgraph](https://cloud.dgraph.io/_/explorer)
+* [Algoritmo SLOPE ONE](https://en.wikipedia.org/wiki/Slope_One)
+* [Filter Recommendation](https://www.baeldung.com/java-collaborative-filtering-recommendations)

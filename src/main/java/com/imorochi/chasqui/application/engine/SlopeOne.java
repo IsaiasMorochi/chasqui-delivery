@@ -8,12 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-/**
- * https://en.wikipedia.org/wiki/Slope_One
- * https://www.baeldung.com/java-collaborative-filtering-recommendations
- */
-
 @Slf4j
 public class SlopeOne {
 
