@@ -12,6 +12,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.annotations.Setting;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -33,5 +34,8 @@ public class Order {
 
     @Field(type = FieldType.Boolean)
     private Boolean complete;
+
+    @Field(type = FieldType.Nested)
+    private List<OrderItem> orders;
 
 }
