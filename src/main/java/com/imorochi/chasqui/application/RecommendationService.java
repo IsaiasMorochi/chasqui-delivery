@@ -36,7 +36,8 @@ public class RecommendationService {
         this.slashGraphQlProperties = slashGraphQlProperties;
     }
 
-    private static final String RATING_QUERY = "query RatingQuery { queryRating { id, score, by { username }, about { name } } }";
+    private static final String RATING_QUERY = "query RatingQuery { queryRating { id score by { username } about { productId category { categoryId categoryName } productName productPrice productPhotoUrl  }  } }";
+//    private static final String RATING_QUERY = "query RatingQuery { queryRating { id, score, by { username }, about { name } } }";
 
     public Recommendation recommend() throws Exception {
         ResponseEntity<String> responseEntity = RestTemplateUtils.query(slashGraphQlProperties.getHostname(), RATING_QUERY);

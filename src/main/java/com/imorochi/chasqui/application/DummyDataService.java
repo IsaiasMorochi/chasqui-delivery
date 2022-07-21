@@ -1,20 +1,14 @@
 package com.imorochi.chasqui.application;
 
 import com.imorochi.chasqui.domain.document.Product;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import static com.imorochi.chasqui.infrastructure.mock.DATA.*;
 
 @Service
 public class DummyDataService {
-
-    private static final Logger LOG = LoggerFactory.getLogger(DummyDataService.class);
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
     private final CategoryService categoryService;
     private final TagService tagService;
@@ -28,23 +22,18 @@ public class DummyDataService {
         this.productService = productService;
     }
 
-
-    public static final Product PRODUCT_1 = new Product(1, CATEGORY_16, "Acer Aspire Laptop", "1000", "path/url/imagen.png", "", List.of(TAG_2, TAG_16));
-    public static final Product PRODUCT_2 = new Product(2, CATEGORY_16, "HP Laptop", "1000", "path/url/imagen.png", "", List.of(TAG_2, TAG_17));
-    public static final Product PRODUCT_3 = new Product(3, CATEGORY_16, "Asus Laptop", "1000", "path/url/imagen.png", "", List.of(TAG_2, TAG_16));
-    public static final Product PRODUCT_4 = new Product(4, CATEGORY_16, "HP pavilon Laptop 2022", "1000", "path/url/imagen.png", "", List.of(TAG_2, TAG_3, TAG_16));
-    public static final Product PRODUCT_5 = new Product(5, CATEGORY_16, "Dell Laptop Windows 11", "1000", "path/url/imagen.png", "", List.of(TAG_2, TAG_3, TAG_16));
-    public static final Product PRODUCT_6 = new Product(6, CATEGORY_16, "Lenovo Windows 10", "1000", "path/url/imagen.png", "", List.of(TAG_2, TAG_3, TAG_16));
-    public static final Product PRODUCT_7 = new Product(7, CATEGORY_16, "ThinkPad Windows 11", "1000", "path/url/imagen.png", "", List.of(TAG_2, TAG_3, TAG_16));
-
-
     public void insertDummyData() {
+
         insertCategories();
 
         insertTags();
 
         insertCompanies();
 
+        insertProducts();
+    }
+
+    private void insertProducts() {
         productService.save(PRODUCT_1);
         productService.save(PRODUCT_2);
         productService.save(PRODUCT_3);
@@ -52,6 +41,15 @@ public class DummyDataService {
         productService.save(PRODUCT_5);
         productService.save(PRODUCT_6);
         productService.save(PRODUCT_7);
+        productService.save(PRODUCT_8);
+        productService.save(PRODUCT_9);
+        productService.save(PRODUCT_10);
+        productService.save(PRODUCT_11);
+        productService.save(PRODUCT_12);
+        productService.save(PRODUCT_13);
+        productService.save(PRODUCT_14);
+        productService.save(PRODUCT_15);
+        productService.save(PRODUCT_16);
     }
 
     private void insertCompanies() {
@@ -90,6 +88,7 @@ public class DummyDataService {
         tagService.save(TAG_15);
         tagService.save(TAG_16);
         tagService.save(TAG_17);
+        tagService.save(TAG_18);
     }
 
     private void insertCategories() {

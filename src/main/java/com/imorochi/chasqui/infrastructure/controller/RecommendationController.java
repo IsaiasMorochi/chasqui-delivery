@@ -21,7 +21,8 @@ public class RecommendationController {
     @GetMapping(value = "/recommend")
     public ResponseEntity<Recommendation> recommend() {
         try {
-            return new ResponseEntity<>(recommendationService.recommend(), HttpStatus.OK);
+            var recomendation= recommendationService.recommend();
+            return new ResponseEntity<>(recomendation, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

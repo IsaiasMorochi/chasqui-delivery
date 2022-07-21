@@ -13,5 +13,5 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class GraphQlDataProduct {
-    private List<Product> queryArtist;
+    private List<Product> queryProduct;
 }

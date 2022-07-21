@@ -2,7 +2,10 @@ package com.imorochi.chasqui.infrastructure.mock;
 
 import com.imorochi.chasqui.domain.document.Category;
 import com.imorochi.chasqui.domain.document.Company;
+import com.imorochi.chasqui.domain.document.Product;
 import com.imorochi.chasqui.domain.document.Tag;
+
+import java.util.List;
 
 public final class DATA {
 
@@ -40,6 +43,7 @@ public final class DATA {
     public static final Tag TAG_15 = new Tag(15, "Accesorio");
     public static final Tag TAG_16 = new Tag(16, "Nuevo");
     public static final Tag TAG_17 = new Tag(17, "Usado");
+    public static final Tag TAG_18 = new Tag(18, "Comida Rapida");
 
 
     public static final Company COMPANY_1 = new Company(1, "Pizzerias");
@@ -57,4 +61,23 @@ public final class DATA {
     public static final Company COMPANY_13 = new Company(13, "Hot Burger");
     public static final Company COMPANY_14 = new Company(14, "Pollos Campeón");
     public static final Company COMPANY_15 = new Company(15, "Pollos Chuy");
+
+
+    public static final Product PRODUCT_1 = new Product(1, CATEGORY_16, "Acer Aspire Laptop", "1000", "path/url/imagen.png", "available", List.of(TAG_2, TAG_16));
+    public static final Product PRODUCT_2 = new Product(2, CATEGORY_16, "HP Laptop", "1000", "path/url/imagen.png", "available", List.of(TAG_2, TAG_17));
+    public static final Product PRODUCT_3 = new Product(3, CATEGORY_16, "Asus Laptop", "1000", "path/url/imagen.png", "available", List.of(TAG_2, TAG_16));
+    public static final Product PRODUCT_4 = new Product(4, CATEGORY_16, "HP pavilon Laptop 2022", "1000", "path/url/imagen.png", "available", List.of(TAG_2, TAG_3, TAG_16));
+    public static final Product PRODUCT_5 = new Product(5, CATEGORY_16, "Dell Laptop Windows 11", "1000", "path/url/imagen.png", "available", List.of(TAG_2, TAG_3, TAG_16));
+    public static final Product PRODUCT_6 = new Product(6, CATEGORY_16, "Lenovo Windows 10", "1000", "path/url/imagen.png", "available", List.of(TAG_2, TAG_3, TAG_16));
+    public static final Product PRODUCT_7 = new Product(7, CATEGORY_16, "ThinkPad Windows 11", "1000", "path/url/imagen.png", "available", List.of(TAG_2, TAG_3, TAG_16));
+    public static final Product PRODUCT_8 = new Product(8, CATEGORY_2, "Pollo 3/4", "15", "path/url/imagen.png", "available", List.of(TAG_5, TAG_18));
+    public static final Product PRODUCT_9 = new Product(9, CATEGORY_1, "Pizza Americana", "66", "path/url/imagen.png", "available", List.of(TAG_5, TAG_18));
+    public static final Product PRODUCT_10 = new Product(10, CATEGORY_13, "Jabon Ace", "5", "path/url/imagen.png", "available", List.of(TAG_12));
+    public static final Product PRODUCT_11 = new Product(11, CATEGORY_2, "Pollo a la Braza", "32", "path/url/imagen.png", "available", List.of(TAG_5, TAG_18));
+    public static final Product PRODUCT_12 = new Product(12, CATEGORY_2, "Pollo al Spiedo", "25", "path/url/imagen.png", "available", List.of(TAG_5, TAG_18));
+    public static final Product PRODUCT_13 = new Product(13, CATEGORY_13, "Champu", "13", "path/url/imagen.png", "available", List.of(TAG_2, TAG_3, TAG_16));
+    public static final Product PRODUCT_14 = new Product(14, CATEGORY_16, "Portatil Lenovo", "2450", "path/url/imagen.png", "available", List.of(TAG_2, TAG_3, TAG_16));
+    public static final Product PRODUCT_15 = new Product(15, CATEGORY_1, "Pizza Napolitana", "56", "path/url/imagen.png", "available", List.of(TAG_18));
+    public static final Product PRODUCT_16 = new Product(16, CATEGORY_16, "Huevo Criollo", "10", "path/url/imagen.png", "available", List.of(TAG_5, TAG_16));
+
 }

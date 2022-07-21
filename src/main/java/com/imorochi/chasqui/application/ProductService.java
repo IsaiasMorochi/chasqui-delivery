@@ -1,5 +1,6 @@
 package com.imorochi.chasqui.application;
 
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.imorochi.chasqui.application.search.SearchCustom;
@@ -12,14 +13,10 @@ import com.imorochi.chasqui.infrastructure.utils.RestTemplateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.get.GetRequest;
 import org.elasticsearch.action.get.GetResponse;
-import org.elasticsearch.action.index.IndexRequest;
-import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.common.xcontent.XContentType;
-import org.elasticsearch.rest.RestStatus;
 import org.elasticsearch.search.SearchHit;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -32,28 +29,28 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    private static final String PRODUCT_QUERY = "query { queryProduct { productId category { categoryId categoryName } productName productPrice ProductPhotoUrl } }";
+    private static final String PRODUCT_QUERY = "query { queryProduct { productId category { categoryId categoryName } productName productPrice productPhotoUrl } }";
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
     private final SlashGraphQlProperties slashGraphQlProperties;
     private final RestHighLevelClient client;
+    private final ElasticsearchClient elasticsearchClient;
 
-    public ProductService(SlashGraphQlProperties slashGraphQlProperties, RestHighLevelClient client) {
+    public ProductService(SlashGraphQlProperties slashGraphQlProperties, RestHighLevelClient client, ElasticsearchClient elasticsearchClient) {
         this.slashGraphQlProperties = slashGraphQlProperties;
         this.client = client;
+        this.elasticsearchClient = elasticsearchClient;
     }
 
     public Boolean save(final Product product) {
         try {
-            final String vehicleAsString = MAPPER.writeValueAsString(product);
-
-            final IndexRequest request = new IndexRequest(Indices.PRODUCT_INDEX);
-            request.id(String.valueOf(product.getProductId()));
-            request.source(vehicleAsString, XContentType.JSON);
-
-            final IndexResponse response = client.index(request, RequestOptions.DEFAULT);
-
-            return response != null && response.status().equals(RestStatus.OK);
+            co.elastic.clients.elasticsearch.core.IndexRequest<Product> request = co.elastic.clients.elasticsearch.core.IndexRequest.of(op -> op.index(Indices.PRODUCT_INDEX)
+                    .id(String.valueOf(product.getProductId()))
+                    .document(product)
+            );
+            co.elastic.clients.elasticsearch.core.IndexResponse response = elasticsearchClient.index(request);
+            log.info("[IndexResponse] [save]: UUID: {}, source: {}", product.getProductId(), request.toString());
+            return true;
         } catch (final Exception e) {
             log.error(e.getMessage(), e);
             return false;
@@ -102,6 +99,10 @@ public class ProductService {
                 products.add(MAPPER.readValue(hit.getSourceAsString(), Product.class)
                 );
             }
+            co.elastic.clients.elasticsearch.core.SearchResponse s = new co.elastic.clients.elasticsearch.core.SearchResponse.Builder<Product>().build();
+            co.elastic.clients.elasticsearch.core.SearchRequest r = new co.elastic.clients.elasticsearch.core.SearchRequest.Builder().build();
+
+            s.aggregations().get("max");
 
             return products;
         } catch (Exception e) {
@@ -116,7 +117,7 @@ public class ProductService {
             ObjectMapper objectMapper = new ObjectMapper();
             SlashGraphQlResultProduct slashGraphQlResult = objectMapper.readValue(responseEntity.getBody(), SlashGraphQlResultProduct.class);
             log.debug("slashGraphQlResult={}", slashGraphQlResult);
-            return slashGraphQlResult.getData().getQueryArtist();
+            return slashGraphQlResult.getData().getQueryProduct();
         } catch (JsonProcessingException e) {
             throw new Exception("An error was encountered processing responseEntity=" + responseEntity.getBody(), e);
         }
