@@ -99,10 +99,9 @@ public class ProductService {
                 products.add(MAPPER.readValue(hit.getSourceAsString(), Product.class)
                 );
             }
-            co.elastic.clients.elasticsearch.core.SearchResponse s = new co.elastic.clients.elasticsearch.core.SearchResponse.Builder<Product>().build();
-            co.elastic.clients.elasticsearch.core.SearchRequest r = new co.elastic.clients.elasticsearch.core.SearchRequest.Builder().build();
-
-            s.aggregations().get("max");
+//            co.elastic.clients.elasticsearch.core.SearchResponse s = new co.elastic.clients.elasticsearch.core.SearchResponse.Builder<Product>().build();
+//            co.elastic.clients.elasticsearch.core.SearchRequest r = new co.elastic.clients.elasticsearch.core.SearchRequest.Builder().build();
+//            s.aggregations().get("max");
 
             return products;
         } catch (Exception e) {

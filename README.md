@@ -144,3 +144,4 @@ detallado en **[Documentacion OpenApi](doc/endpoints/chasqui-delivery-openapi.js
 * [Dgraph](https://cloud.dgraph.io/_/explorer)
 * [Algoritmo SLOPE ONE](https://en.wikipedia.org/wiki/Slope_One)
 * [Filter Recommendation](https://www.baeldung.com/java-collaborative-filtering-recommendations)
+* [Plugin elasticsearch analysis-phonetic](https://www.elastic.co/guide/en/elasticsearch/plugins/7.17/analysis-phonetic.html)
