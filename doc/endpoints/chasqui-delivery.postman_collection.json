@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "3c35e4da-2cdc-4034-b671-8e9b27e216d2",
+		"name": "chasqui-delivery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2707537"
+	},
+	"item": [
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyId\": 1,\r\n    \"companyName\": \"Pizzerias\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/api/company",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"api",
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/api/company/1",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"api",
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "searchByField",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fields\" : [\"productName\", \"productName.soundex\", \"productName.metaphone\", \"productName.nysiis\"],\r\n    \"searchTerm\" : \"laptop\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/product/search",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchByField Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fields\" : [\"productName\"],\r\n    \"searchTerm\" : \"lapto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/product/search",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "productId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/product/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": 1,\r\n    \"category\": {\r\n        \"categoryId\": 16,\r\n        \"categoryName\": \"Electronicos\"\r\n    },\r\n    \"productName\": \"Acer Aspire Laptop\",\r\n    \"productPrice\": \"1000\",\r\n    \"productPhotoUrl\": \"path/url/imagen.png\",\r\n    \"productStatus\": \"available\",\r\n    \"tags\": [\r\n        {\r\n            \"tagId\": 2,\r\n            \"tagName\": \"Video Juegos\"\r\n        },\r\n        {\r\n            \"tagId\": 16,\r\n            \"tagName\": \"Nuevo\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/product",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "data",
+			"item": [
+				{
+					"name": "dataDummy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/data/insertdummydata",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"data",
+								"insertdummydata"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "elasticsearch",
+			"item": [
+				{
+					"name": "es/search",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "elastic",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "9Jk-zscPU*XIqASRBCbB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": {\r\n    \"bool\": {\r\n      \"should\": [\r\n        {\r\n          \"multi_match\": {\r\n            \"query\": \"windowsss\",\r\n            \"fields\": [\r\n              \"productName\",\r\n              \"productName.soundex\",\r\n              \"productName.metaphone\",\r\n              \"productName.nysiis\"\r\n            ]\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/product/_search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"product",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "es/index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "elastic",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "9Jk-zscPU*XIqASRBCbB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/product/_search?q=productName:\"windows\"",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"product",
+								"_search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "productName:\"windows\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "es/create_index",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "elastic",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "9Jk-zscPU*XIqASRBCbB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"mappings\": {\r\n          \"dynamic_templates\": [\r\n              {\r\n                  \"phonetic\": {\r\n                      \"match\": \"productName\",\r\n                      \"match_mapping_type\": \"string\",\r\n                      \"mapping\": {\r\n                          \"analyzer\": \"standard\",\r\n                          \"fields\": {\r\n                              \"metaphone\": {\r\n                                  \"analyzer\": \"metaphone\",\r\n                                  \"type\": \"text\"\r\n                              },\r\n                              \"soundex\": {\r\n                                  \"analyzer\": \"soundex\",\r\n                                  \"type\": \"text\"\r\n                              },\r\n                              \"nysiis\": {\r\n                                  \"analyzer\": \"nysiis\",\r\n                                  \"type\": \"text\"\r\n                              }\r\n                          },\r\n                          \"type\": \"text\"\r\n                      }\r\n                  }\r\n              }\r\n          ],\r\n            \"properties\": {\r\n                \"category\": {\r\n                    \"properties\": {\r\n                        \"categoryId\": {\r\n                            \"type\": \"long\"\r\n                        },\r\n                        \"categoryName\": {\r\n                            \"type\": \"text\",\r\n                            \"fields\": {\r\n                                \"keyword\": {\r\n                                    \"type\": \"keyword\",\r\n                                    \"ignore_above\": 256\r\n                                }\r\n                            }\r\n                        }\r\n                    }\r\n                },\r\n                \"productId\": {\r\n                    \"type\": \"long\"\r\n                },\r\n                \"productName\": {\r\n                    \"type\": \"text\",\r\n                    \"fields\": {\r\n                        \"keyword\": {\r\n                            \"type\": \"keyword\",\r\n                            \"ignore_above\": 256\r\n                        },\r\n                          \"metaphone\": {\r\n                          \"type\": \"text\",\r\n                          \"analyzer\": \"metaphone\"\r\n                        },\r\n                        \"nysiis\": {\r\n                          \"type\": \"text\",\r\n                          \"analyzer\": \"nysiis\"\r\n                        },\r\n                        \"soundex\": {\r\n                          \"type\": \"text\",\r\n                          \"analyzer\": \"soundex\"\r\n                        }\r\n                    },\r\n                    \"analyzer\": \"standard\"\r\n                },\r\n                \"productPhotoUrl\": {\r\n                    \"type\": \"text\",\r\n                    \"fields\": {\r\n                        \"keyword\": {\r\n                            \"type\": \"keyword\",\r\n                            \"ignore_above\": 256\r\n                        }\r\n                    }\r\n                },\r\n                \"productPrice\": {\r\n                    \"type\": \"text\",\r\n                    \"fields\": {\r\n                        \"keyword\": {\r\n                            \"type\": \"keyword\",\r\n                            \"ignore_above\": 256\r\n                        }\r\n                    }\r\n                },\r\n                \"productStatus\": {\r\n                    \"type\": \"text\",\r\n                    \"fields\": {\r\n                        \"keyword\": {\r\n                            \"type\": \"keyword\",\r\n                            \"ignore_above\": 256\r\n                        }\r\n                    }\r\n                },\r\n                \"tags\": {\r\n                    \"properties\": {\r\n                        \"tagId\": {\r\n                            \"type\": \"long\"\r\n                        },\r\n                        \"tagName\": {\r\n                            \"type\": \"text\",\r\n                            \"fields\": {\r\n                                \"keyword\": {\r\n                                    \"type\": \"keyword\",\r\n                                    \"ignore_above\": 256\r\n                                }\r\n                            }\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n      },\r\n      \"settings\": {\r\n          \"index\": {\r\n              \"analysis\": {\r\n                  \"filter\": {\r\n                      \"metaphone_product\": {\r\n                          \"replace\": \"false\",\r\n                          \"type\": \"phonetic\",\r\n                          \"encoder\": \"doublemetaphone\"\r\n                      },\r\n                      \"nysiis_product\": {\r\n                          \"replace\": \"false\",\r\n                          \"type\": \"phonetic\",\r\n                          \"encoder\": \"nysiis\"\r\n                      },\r\n                      \"refined_soundex_product\": {\r\n                          \"replace\": \"false\",\r\n                          \"type\": \"phonetic\",\r\n                          \"encoder\": \"refinedsoundex\"\r\n                      }\r\n                  },\r\n                  \"normalizer\": {\r\n                      \"lowercase_normalizer\": {\r\n                          \"filter\": [\r\n                              \"lowercase\"\r\n                          ],\r\n                          \"type\": \"custom\",\r\n                          \"char_filter\": []\r\n                      }\r\n                  },\r\n                  \"analyzer\": {\r\n                      \"soundex\": {\r\n                          \"filter\": [\r\n                              \"lowercase\",\r\n                              \"refined_soundex_product\"\r\n                          ],\r\n                          \"type\": \"custom\",\r\n                          \"tokenizer\": \"standard\"\r\n                      },\r\n                      \"metaphone\": {\r\n                          \"filter\": [\r\n                              \"lowercase\",\r\n                              \"metaphone_product\"\r\n                          ],\r\n                          \"type\": \"custom\",\r\n                          \"tokenizer\": \"standard\"\r\n                      },\r\n                      \"nysiis\": {\r\n                          \"filter\": [\r\n                              \"lowercase\",\r\n                              \"nysiis_product\"\r\n                          ],\r\n                          \"type\": \"custom\",\r\n                          \"tokenizer\": \"standard\"\r\n                      }\r\n                  }\r\n              }\r\n          }\r\n      }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "es/settings",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "elastic",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "9Jk-zscPU*XIqASRBCbB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "recommendation",
+			"item": [
+				{
+					"name": "recommend",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/recommend",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"recommend"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "recommend artist",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8100/recommend",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8100",
+									"path": [
+										"recommend"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Jul 2022 03:15:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"matchedCustomer\": {\n        \"username\": \"Jeff\"\n    },\n    \"recommendationsMap\": {\n        \"Artist(name=Eric Johnson)\": -1,\n        \"Artist(name=Genesis)\": -1,\n        \"Artist(name=Yes)\": -1,\n        \"Artist(name=Rush)\": -1,\n        \"Artist(name=Van Halen)\": -1,\n        \"Artist(name=Led Zeppelin)\": -1\n    },\n    \"ratingsMap\": {\n        \"Artist(name=Triumph)\": 0.8\n    },\n    \"resultsMap\": {\n        \"Artist(name=Eric Johnson)\": -1,\n        \"Artist(name=Genesis)\": -1,\n        \"Artist(name=Yes)\": -1,\n        \"Artist(name=Triumph)\": 0.8,\n        \"Artist(name=Rush)\": -1,\n        \"Artist(name=Van Halen)\": -1,\n        \"Artist(name=Led Zeppelin)\": -1\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shipdate\": \"21-07-2022\",\r\n    \"status\": \"pending\",\r\n    \"complete\": false,\r\n    \"orderItem\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"queantity\": 2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/order",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "<Basic Auth Username>",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "<Basic Auth Password>",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}
