@@ -5,12 +5,12 @@ spring:
     active: dev
 
 elasticsearch:
-  host: localhost:9200
-  user: elastic
-  password: 9Jk-zscPU*XIqASRBCbB
+  host: ${ELASTIC_HOST}
+  user: ${ELASTIC_USER}
+  password: ${ELASTIC_PASSWORD}
 
 slash-graph-ql:
-  hostname: https://blue-surf-591004.us-east-1.aws.cloud.dgraph.io #${SLASH_GRAPH_QL_HOSTNAME}
+  hostname: ${SLASH_GRAPH_QL_HOSTNAME}
 
 
 server:
